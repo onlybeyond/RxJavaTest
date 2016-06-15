@@ -6,28 +6,25 @@
     android:layout_height="match_parent"
     tools:context="com.only.rxtest.MainActivity">
     <TextView
+        android:id="@+id/tv_rx"
         android:text="RxJava请求"
         android:gravity="center"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/color_white_ffffff"
+        android:background="@color/color_blue_028be6"
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
 
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
     <TextView
-        android:id="@+id/tv_content_rx"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Hello World!" />
-    <TextView
+        android:id="@+id/tv_async"
         android:text="异步任务请求"
         android:gravity="center"
+        android:textColor="@color/color_white_ffffff"
+        android:background="@color/color_blue_028be6"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
 
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-    <TextView
-        android:id="@+id/tv_content_task"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
 </LinearLayout>
