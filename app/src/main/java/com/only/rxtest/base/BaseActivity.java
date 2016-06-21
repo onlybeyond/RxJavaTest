@@ -4,16 +4,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Toast;
+
+import com.only.rxtest.R;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by only on 16/6/14.
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    //state
+    private boolean isInitTop=true;// is init toolbar
+
+    private boolean isRegisterEvent;
+
     //data
     private long requestStartingTime;//record request data start time
+
+
+    //view
+    protected Toolbar toolbar;
+
+
+    public void setInitTop(boolean initTop) {
+        isInitTop = initTop;
+    }
+
+    public void setRegisterEvent(boolean registerEvent) {
+        isRegisterEvent = registerEvent;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             initData();
         }
         initView();
+        initTop();
         fillDate();
         requestData();
     }
@@ -40,6 +65,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * init  get query from other page
      */
     public void initData() {
+
     }
 
 
@@ -49,6 +75,21 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public abstract void initView();
 
+    public  void initTop(){
+        if(isInitTop){
+            toolbar=(Toolbar)findViewById(R.id.toolbar);
+            if(toolbar!=null) {
+                toolbar.setNavigationIcon(R.mipmap.arrow_back);
+                toolbar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+            }
+        }
+
+    }
     /**
      * init data
      */
@@ -61,6 +102,22 @@ public abstract class BaseActivity extends AppCompatActivity {
          requestStartingTime=System.currentTimeMillis();
      };
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(isRegisterEvent) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(isRegisterEvent) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
 
     /********************************
      * jump to other activity

@@ -4,7 +4,7 @@ package com.only.rxtest.common.model;
  * Created by only on 16/6/15.
  * Email: onlybeyond99@gmail.com
  */
-public class Response<T> {
+public class ServerResponse<T> {
 
     /**
      * error_code : 0
@@ -32,5 +32,13 @@ public class Response<T> {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public T getResult() {
+        return result;
+    }
+
+    public void setResult(T result) {
+        this.result = result;
     }
 }

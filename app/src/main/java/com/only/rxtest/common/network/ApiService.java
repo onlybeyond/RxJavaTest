@@ -2,10 +2,12 @@ package com.only.rxtest.common.network;
 
 import com.only.rxtest.common.model.JokeBean;
 import com.only.rxtest.common.model.Result;
-import com.only.rxtest.medol.MovieBean;
+import com.only.rxtest.common.model.MovieBean;
+import com.only.rxtest.common.model.ServerResponse;
 
 import java.util.List;
 
+import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -28,7 +30,7 @@ public interface ApiService {
 
 
     @GET("list.from")
-    Observable<Response<Result<List<JokeBean>>>> getJoke(@Query("sort") String sort,
+    Call<ServerResponse<Result<List<JokeBean>>>> getJoke(@Query("sort") String sort,
                                                          @Query("page") int page, @Query("pagesize") int pageSize,
                                                          @Query("time") String time, @Query("key") String key);
 }

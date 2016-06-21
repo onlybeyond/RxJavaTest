@@ -17,15 +17,15 @@ import com.only.rxtest.common.network.ApiConfig;
 import com.only.rxtest.common.adapter.JokeAdapter;
 import com.only.rxtest.common.model.JokeBean;
 import com.only.rxtest.utils.LogUtils;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -35,6 +35,7 @@ import static com.only.rxtest.utils.LogUtils.*;
 
 /**
  * Created by only on 16/6/15.
+ * 这部的目的不是为了对比两者的优缺点,而是为了让大家通过异步任务对RxJava有一定的了解
  */
 public class RxJavaTestActivity extends BaseActivity implements View.OnClickListener {
     private static String TAG = makeLogTag(RxJavaTestActivity.class);
@@ -80,8 +81,8 @@ public class RxJavaTestActivity extends BaseActivity implements View.OnClickList
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 OkHttpClient okHttpClient = new OkHttpClient();
-                okHttpClient.setConnectTimeout(10, TimeUnit.SECONDS);
-                okHttpClient.setReadTimeout(10, TimeUnit.SECONDS);
+//                okHttpClient.setConnectTimeout(10, TimeUnit.SECONDS);
+//                okHttpClient.setReadTimeout(10, TimeUnit.SECONDS);
                 String url = ApiConfig.BASE_URL_JOKE + "list.from" + "?sort=asc&page=2&pagesize=20&time=1418816972&key=" + ApiConfig.JOKE_KEY;
                 LOGD(TAG, "---url" + url);
                 Request request = null;

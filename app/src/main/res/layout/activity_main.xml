@@ -27,4 +27,37 @@
         android:layout_width="80dp"
         android:layout_height="40dp" />
 
+    <TextView
+        android:id="@+id/tv_retrofit"
+        android:text="retrofit测试"
+        android:gravity="center"
+        android:textColor="@color/color_white_ffffff"
+        android:background="@color/color_blue_028be6"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/tv_http"
+        android:text="OkHttp测试"
+        android:gravity="center"
+        android:textColor="@color/color_white_ffffff"
+        android:background="@color/color_blue_028be6"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/tv_rx_second"
+        android:text="Rx Second 测试"
+        android:gravity="center"
+        android:textColor="@color/color_white_ffffff"
+        android:background="@color/color_blue_028be6"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="80dp"
+        android:layout_height="40dp" />
+
 </LinearLayout>

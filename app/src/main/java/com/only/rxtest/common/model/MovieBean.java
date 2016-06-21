@@ -1,4 +1,4 @@
-package com.only.rxtest.medol;
+package com.only.rxtest.common.model;
 
 import java.util.List;
 

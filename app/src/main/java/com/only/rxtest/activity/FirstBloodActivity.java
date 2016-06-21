@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.only.rxtest.R;
-import com.only.rxtest.medol.MovieBean;
+import com.only.rxtest.common.model.MovieBean;
 import com.only.rxtest.common.network.ApiService;
-import com.only.rxtest.utils.RetrofitUtil;
+import com.only.rxtest.three.util.RetrofitUtil;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;

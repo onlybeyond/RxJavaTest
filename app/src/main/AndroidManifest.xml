@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.only.rxtest">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- 网络状态权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--写存储-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--读存储-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <service android:name=".common.service.UploadService"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.FirstBloodActivity">
-
-        </activity>
-        <activity android:name=".first.activity.AsyncTaskTestActivity"
+        <activity android:name=".activity.FirstBloodActivity"></activity>
+        <activity
+            android:name=".first.activity.AsyncTaskTestActivity"
+            android:theme="@style/Medical"></activity>
+        <activity
+            android:name=".first.activity.RxJavaTestActivity"
+            android:theme="@style/Medical"></activity>
+        <activity
+            android:name=".three.RetrofitTestActivity"
+            android:theme="@style/Medical"></activity>
+        <activity
+            android:name=".three.OkHttpTestActivity"
+            android:theme="@style/Medical"></activity>
+        <activity android:name=".second.activity.RxJavaSecondTestActivity"
             android:theme="@style/Medical">
 
-        </activity>
-        <activity android:name=".first.activity.RxJavaTestActivity"
-            android:theme="@style/Medical">
-            >
 
         </activity>
     </application>

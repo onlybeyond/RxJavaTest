@@ -1,36 +1,15 @@
 package com.only.rxtest;
 
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.only.rxtest.base.BaseActivity;
 import com.only.rxtest.first.activity.AsyncTaskTestActivity;
 import com.only.rxtest.first.activity.RxJavaTestActivity;
-import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-
-
+import com.only.rxtest.second.activity.RxJavaSecondTestActivity;
+import com.only.rxtest.three.OkHttpTestActivity;
+import com.only.rxtest.three.RetrofitTestActivity;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -39,15 +18,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     //view
     private TextView tvRx;
     private TextView tvTask;
+    private TextView tvRetrofit;
+    private TextView tvOkHttp;
+    private TextView tvRxSecond;
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_main);
         tvRx = (TextView) findViewById(R.id.tv_rx);
         tvTask = (TextView) findViewById(R.id.tv_async);
+        tvRetrofit = (TextView)findViewById(R.id.tv_retrofit);
+        tvOkHttp = (TextView)findViewById(R.id.tv_http);
+        tvRxSecond = (TextView)findViewById(R.id.tv_rx_second);
 
         tvRx.setOnClickListener(this);
         tvTask.setOnClickListener(this);
+        tvRetrofit.setOnClickListener(this);
+        tvOkHttp.setOnClickListener(this);
+        tvRxSecond.setOnClickListener(this);
 
     }
 
@@ -69,6 +57,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 //RxJava test page
                 openActivity(RxJavaTestActivity.class);
                 break;
+            case R.id.tv_retrofit:
+                openActivity(RetrofitTestActivity.class);
+                break;
+            case R.id.tv_http:
+                openActivity(OkHttpTestActivity.class);
+                break;
+            case R.id.tv_rx_second:
+                openActivity(RxJavaSecondTestActivity.class);
             default:
                 break;
         }

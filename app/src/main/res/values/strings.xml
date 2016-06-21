@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RxTest</string>
+    <string name="upload_image">上传图片</string>
 </resources>
